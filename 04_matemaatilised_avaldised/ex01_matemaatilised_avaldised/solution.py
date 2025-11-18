@@ -69,3 +69,41 @@ if __name__ == '__main__':
     addition_result, difference = sum_and_difference(5, 6)
     assert addition_result == 11
     assert difference == -1
+
+    float_division_result = float_division(10, 2)
+    assert isinstance(float_division_result, float)
+    assert 4.99 < float_division_result < 5.01
+
+    integer_division_result = integer_division(10, 3)
+    assert isinstance(integer_division_result, int)
+    assert integer_division_result == 3
+    integer_division_result = integer_division(10, 10)
+    assert integer_division_result == 1
+
+    multiply_numbers, power, remainder = powerful_operations(2,2)
+    assert multiply_numbers == 4
+    assert power == 4
+    assert remainder == 0
+
+    find_average_result = find_average(3, 4)
+    assert isinstance(find_average_result, float)
+    assert 3,49 < find_average_result < 3.51
+
+    area_of_a_circle_result = area_of_a_circle(5)
+    assert 78.53 < area_of_a_circle_result < 78.55, f"{area_of_a_circle_result}" # need to check if round was used
+
+    area_of_an_equilateral_triangle_result = area_of_an_equilateral_triangle(3)
+    assert isinstance(area_of_an_equilateral_triangle_result, int)
+    assert area_of_an_equilateral_triangle_result == 4
+
+    calculate_discriminant_result = calculate_discriminant(-1, 2,3)
+    assert isinstance(calculate_discriminant_result, int)
+    assert calculate_discriminant_result == 16
+
+    calculate_hypotenuse_length_result = calculate_hypotenuse_length(3, 4)
+    assert isinstance(calculate_hypotenuse_length_result, float)
+    assert 4.99 < calculate_hypotenuse_length_result < 5.01
+
+    calculate_cathetus_length_result = calculate_cathetus_length(4, 5)
+    assert isinstance(calculate_cathetus_length_result, float)
+    assert 2.99 < calculate_cathetus_length_result < 3.01
