@@ -90,7 +90,7 @@ if __name__ == '__main__':
     assert 3,49 < find_average_result < 3.51
 
     area_of_a_circle_result = area_of_a_circle(5)
-    assert 78.53 < area_of_a_circle_result < 78.55, f"{area_of_a_circle_result}" # need to check if round was used
+    assert 78.53 < area_of_a_circle_result < 78.55, f"{area_of_a_circle_result}"
 
     area_of_an_equilateral_triangle_result = area_of_an_equilateral_triangle(3)
     assert isinstance(area_of_an_equilateral_triangle_result, int)
