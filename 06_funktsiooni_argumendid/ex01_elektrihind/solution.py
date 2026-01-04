@@ -12,5 +12,5 @@ def elektrihind(electricity_price_in_s_kwh:float) -> float:
 
 
 if __name__ == '__main__':
-    electricity_price_in_s_kwh = float(input("Sisesta elektrihind sentides kilovatt-tunni kohta: "))
-    print(f"{electricity_price_in_s_kwh} s/kWh on {elektrihind(electricity_price_in_s_kwh)} €/MWh")
+    electricity_price_in_s_kwh_input = float(input("Sisesta elektrihind sentides kilovatt-tunni kohta: "))
+    print(f"{electricity_price_in_s_kwh_input} s/kWh on {elektrihind(electricity_price_in_s_kwh_input)} €/MWh")
