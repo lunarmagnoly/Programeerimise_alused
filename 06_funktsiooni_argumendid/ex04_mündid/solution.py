@@ -17,4 +17,4 @@ if __name__ == '__main__':
     for line in coin_list_file:
         coins.append(int(line.strip()))
     coin_list_file.close()
-
+    print(pronksikarva_summa(coins))
