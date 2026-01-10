@@ -1,8 +1,8 @@
 
 
 """
-Koosta programm, mis küsib kasutajalt temperatuuri Celsiuse kraadides ja väljastab tulemuse Fahrenheiti kraadides.
-Kuidas muuta programmi nii, et võimalik oleks teisendamine nii üht- kui teistpidi? Proovi.
+Create a program that asks the user for a temperature in Celsius and prints the result in Fahrenheit.
+Modify the program so that it allows temperature conversion in both directions.
 """
 
 def convert_temperature_from_c_to_f (temperature_in_c: float) -> str:
