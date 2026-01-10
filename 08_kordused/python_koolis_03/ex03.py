@@ -1,20 +1,23 @@
 
 
 """
-Koosta programm, mis aitab lastel treenida liitmist.
-Programm peaks pakkuma välja juhuslike arvudega liitmistehteid ning ootama kasutajalt vastust.
-Kui vastus on õige, kiitma kasutajat, kui aga vale, andma õige vastuse ja esitama uue tehte.
-Järjest esitatavate tehete hulk võib olla programmis ette antud (näiteks 10), samuti võib olla ette antud piirid,
-kui suuri arve kasutajalt küsitakse (näiteks 1 kuni 50).
-Programm peaks pidama arvestust ka õigete vastuste üle ning väljastama pärast viimast tehet tulemuse.
+Create a program that helps children practice addition.
+The program should present addition problems with random numbers and wait for the user's answer.
+If the answer is correct, the program should praise the user; if it is incorrect, the program should
+show the correct answer and present a new problem.
 
-Täiendusi vabal valikul:
+The number of problems to be presented can be predefined in the program (for example, 10),
+and the range of numbers used can also be predefined (for example, from 1 to 50).
+The program should keep track of correct answers and display the final result after the last problem.
 
-Programm lubab kasutajal alguses sisestada, mitut tehet soovitakse.
-Esitatavate arvude piirid saab kasutaja ette anda (maksimum või nii miinimum kui maksimum).
-Küsitakse mitte ainult liitmistehteid, vaid ka teisi (lahutamine, korrutamine, jagamine).
-Vastavalt lõpptulemusele reageeritakse erinevalt: "Ülihea!", "Olid tubli!", "Korralik keskmine tulemus!",
-"Püüad järgmisel korral rohkem." vms.
+Optional extensions:
+
+The program allows the user to enter how many problems they want to solve.
+The user can define the range of numbers (maximum or both minimum and maximum).
+The program asks not only addition problems but also other operations
+(subtraction, multiplication, division).
+Based on the final result, the program responds differently, for example:
+"Excellent!", "Well done!", "Average result!", "Try harder next time.", etc.
 """
 
 from random import randint, choice
