@@ -1,14 +1,13 @@
 
 
 """
-Koosta mäng, kus saate ära arvata arvuti poolt mõeldud täisarvu ühest kahekümneni.
+Create a guessing game where the player has to guess an integer chosen by the computer
+between 1 and 20.
 
-1. jätta meelde suvaline arv 1-20
-2. korda
-    küsi kasutajalt arvu
-        ütle, kas suurem
-        ütle, kas väiksem
-        ütle, Õige ja lõpeta
+The program randomly selects a number from 1 to 20.
+The user is asked to guess the number.
+After each guess, the program tells whether the guess is too high or too low.
+If the guess is correct, the program congratulates the user and ends the game.
 """
 
 from random import randint
@@ -20,9 +19,11 @@ def play_guessing_game():
         answer = int(input(f"Katse {tries + 1}. Sisesta arv vahemikus 1-20: "))
         if answer > correct:
             print("Liiga suur, proovi uuesti.")
+            tries += 1
             continue
         if answer < correct:
             print("Liiga väike, proovi uuesti.")
+            tries += 1
             continue
         print(f"Tubli, arvasid ära. Arv oli {correct}")
         break
