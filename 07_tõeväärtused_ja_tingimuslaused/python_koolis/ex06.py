@@ -1,10 +1,9 @@
 
 
 """
-Loo programm, mis küsib kasutajalt ruutvõrrandi liikmete (
-ruutliige, lineaarliige, vabaliige) kordajad ning arvutab nende põhjal diskriminandi ja
-väljastab selle põhjal ruutvõrrandi lahendid.
-Nagu tead, võib lahendeid vastavalt diskriminandi väärtusele olla üks või kaks, kuid lahendid võivad ka puududa.
+Create a program that asks the user for the coefficients of a quadratic equation,
+calculates the discriminant, and outputs the solutions based on its value.
+
 """
 from math import sqrt
 
