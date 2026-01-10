@@ -1,9 +1,9 @@
 
 
 """
-Koosta programm, mis küsib kasutajalt arvu N ja väljastab O-tähtedest koosneva ruudu suuruses NxN.
+Create a program that asks the user for a number N and prints an N×N square made of the letter "O".
 
-Seejärel muutke programmi nii, et ruudu diagonaalidel olevad märgid oleksid X-d
+Then modify the program so that the characters on the square’s diagonals are "X".
 """
 
 def draw_square(size: int, symbol: str, alt: str):
