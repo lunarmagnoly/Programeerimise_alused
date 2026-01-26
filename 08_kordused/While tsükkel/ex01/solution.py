@@ -78,4 +78,5 @@ def ask_user_age(age_limit: int) -> int:
         elif int(user_input_age) < age_limit:
             print("Too young!")
             continue
-        return int(user_input_age)
+        break
+    return int(user_input_age)
