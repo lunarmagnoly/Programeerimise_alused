@@ -28,11 +28,11 @@ from random import randint
 
 def check_format(personal_code: str) -> bool:
     """
-           Checks the format of Estonian personal code
-           (length, digits only, first number from 1 to 6).
+    Checks the format of Estonian personal code
+    (length, digits only, first number from 1 to 6).
 
-            :param personal_code: str
-            :return: bool
+    :param personal_code: str
+    :return: bool
     """
     personal_code = personal_code.strip()
     if len(personal_code) == 11 and personal_code.isdigit():
@@ -42,10 +42,10 @@ def check_format(personal_code: str) -> bool:
 
 def get_birthyear(personal_code: str) -> int:
     """
-        Extracts birth year from Estonian personal code.
+    Extracts birth year from Estonian personal code.
 
-        :param personal_code: str
-        :return: int, birth year or -1 if invalid
+    :param personal_code: str
+    :return: int, birth year or -1 if invalid
     """
 
     if check_format(personal_code):
@@ -182,9 +182,7 @@ def get_serial_number() -> int:
 
 
 def first10() ->str:
-    """
-    Combine all data to string
-    """
+    """Combine all data to string"""
     gender = get_random_gender()
     year_part = get_random_year_part()
     full_year = get_random_year(gender,year_part)
@@ -199,9 +197,7 @@ def first10() ->str:
 
 
 def calculate_control_number(code10: str, weight: str)-> str:
-    """
-    Calculate valid control number
-    """
+    """Calculate valid control number"""
     code10 = code10.strip()
     weight = weight.strip()
     code10_digits = []
@@ -235,11 +231,48 @@ def generate_valid_personal_code()-> str:
             return code10 + str(control_number2)
         if control_number2 == 10:
             return code10 + "0"
-    return "Error"
+    return "Viga"
+
+
+def get_gender(personal_code: str) -> str:
+    """Get person's gender from personal code"""
+    gender = ""
+    if is_valid_personal_code(personal_code):
+        if int(personal_code[0]) in {1, 3, 5}:
+            gender = "mees"
+        if int(personal_code[0]) in {2, 4, 6}:
+            gender = "naine"
+    return gender
+
+
+def get_birthmonth(personal_code: str) -> str:
+    """Get person's birthmonth from personal code"""
+    if is_valid_personal_code(personal_code):
+        return personal_code[3:5]
+    return "Isikukood peab olema korrektne"
+
+def get_birthday(personal_code:str) -> str:
+    """Get person's birthday from personal code"""
+    if is_valid_personal_code(personal_code):
+        return personal_code[5:7]
+    return "Isikukood peab olema korrektne"
+
+def decode_personal_code(personal_code: str) -> str:
+    """Decode Estonian personal identification code"""
+    if is_valid_personal_code(personal_code):
+        gender = get_gender(personal_code)
+        year = get_birthyear(personal_code)
+        month = get_birthmonth(personal_code)
+        day = get_birthday(personal_code)
+        birthday = day + "." + month + "." + str(year)
+        return f"Isikukoodi omanik on {gender} kelle sünnipäev on {birthday}"
+    return "Ei saa dekodeerida ebakorrektne kood"
+
+
 
 if __name__ == '__main__':
     print("Valikud:")
-    choice_input = input("1-Kontrolli kas isikukood on korrektne. \n2-Genereeri korrektne isikukood.\n")
+    choice_input = input("1-Kontrolli kas isikukood on korrektne. \n2-Genereeri korrektne isikukood.\n3-Isikukoodi dekodeerimine\n")
     if choice_input.strip() == "1":
         personal_code_input = input("Sisestage isikukood: ").strip()
         if is_valid_personal_code(personal_code_input):
@@ -248,3 +281,6 @@ if __name__ == '__main__':
             print("Isikukood ei ole korrektne")
     elif choice_input.strip() == "2":
         print(generate_valid_personal_code())
+    elif choice_input.strip() == "3":
+        personal_code_input = input("Sisestage isikukood: ").strip()
+        print(decode_personal_code(personal_code_input))
