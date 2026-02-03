@@ -8,6 +8,10 @@ The program randomly selects a number from 1 to 20.
 The user is asked to guess the number.
 After each guess, the program tells whether the guess is too high or too low.
 If the guess is correct, the program congratulates the user and ends the game.
+
+Extend program so that the user has 5 chances to guess the number,
+i.e. if they don't guess within 5 attempts, the computer will say they lost and report the correct number.
+Extend the block diagram accordingly.
 """
 
 from random import randint
