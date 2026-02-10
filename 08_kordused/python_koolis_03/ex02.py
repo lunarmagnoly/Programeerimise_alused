@@ -4,27 +4,42 @@
 but simply presses the Enter key.
 3. Try solving this problem with both a while loop and a for loop.
 """
-import keyboard
 
 
-def ask_user_for_number ()-> str:
-    return input("Sisestage arvu: ")
-
-
-def summarise_numbers()-> None:
+def ask_for_number_till_use_press_enter() -> int:
     result = 0
-    for number in range(10):
-        number = ask_user_for_number()
-        result += float(ask_user_for_number())
-    print(result)
+    while True:
+        number = input("Sisestage arvu: ")
+        if number == "":
+            break
+        elif number.isdigit():
+            result += int(number)
+
+    return result
 
 
-def ask_for_number_till_use_enter() -> None:
-    result = 0
-    while ask_user_for_number() != keyboard.is_pressed('Enter'):
-        ask_user_for_number()
-        result += float(ask_user_for_number())
-    print(result)
+def summarise_unlimited_numbers()-> None:
+    result = ask_for_number_till_use_press_enter()
+    print(f"Arvude summa on {result}.")
+
+
+def summarize_limited_numbers()-> None:
+    total = 0
+    for i in range(10):
+        number = input("Sisestage arvu: ")
+        if number.isdigit():
+            total += int(number)
+        else:
+            print("Error. Input must be digit")
+
+    print(total)
+
 
 if __name__ == '__main__':
-    summarise_numbers()
+    choice = input("Valige:\n1 -- Soovite arutada 10 sisestatud numbreid,\n2 -- Soovige arutada nii plaju numbreid kui tahad")
+    if choice.isdigit() and choice.strip() == "1":
+        summarize_limited_numbers()
+    elif choice.isdigit() and choice.strip() == "2":
+        summarise_unlimited_numbers()
+    else:
+        print("Valikud on ainult 1 või 2.")
