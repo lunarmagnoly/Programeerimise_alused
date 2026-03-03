@@ -20,7 +20,9 @@ def get_sum_and_diff(a: int, b: int) -> tuple:
     get_sum_and_diff(1, 1) => (2, 0)
     get_sum_and_diff(5, 1) => (6, 4)
     """
-    pass
+    sum_of_numbers = a + b
+    difference_of_numbers = a - b
+    return sum_of_numbers, difference_of_numbers
 
 
 def create_tuple_from_two_numbers(a: int, b: int) -> tuple:
@@ -33,7 +35,9 @@ def create_tuple_from_two_numbers(a: int, b: int) -> tuple:
     create_tuple_from_two_numbers(1, 2) => (1, 2)
     create_tuple_from_two_numbers(1, 1) => (1,)
     """
-    pass
+    if a != b:
+        return a, b
+    return a,
 
 
 def create_tuple_up_to_n(n: int) -> tuple:
@@ -46,7 +50,11 @@ def create_tuple_up_to_n(n: int) -> tuple:
     create_tuple_up_to_n(0) => (0, )
     create_tuple_up_to_n(-10) => ()
     """
-    pass
+    tuple = ()
+    if n >= 0:
+        for number in range(n + 1):
+            tuple += (number,)
+    return tuple
 
 
 def merge_tuples(a: tuple, b: tuple) -> tuple:
@@ -57,7 +65,7 @@ def merge_tuples(a: tuple, b: tuple) -> tuple:
     merge_tuples((1, ), (3, )) => (1, 3)
     merge_tuples((1, 2, 3), (1, 2)) => (1, 2, 3, 1, 2)
     """
-    pass
+    return a + b
 
 
 def remove_odd_numbers(numbers: tuple) -> tuple:
@@ -70,7 +78,11 @@ def remove_odd_numbers(numbers: tuple) -> tuple:
     remove_odd_numbers((1, 5, 3)) => ()
     remove_odd_numbers((2, 4, 6)) => (2, 4, 6)
     """
-    pass
+    odd_numbers = ()
+    for number in numbers:
+        if number % 2 == 0:
+            odd_numbers += (number,)
+    return odd_numbers
 
 
 def insert_tuple_inside_tuple(outer_tuple: tuple, position: int, inner_tuple: tuple) -> tuple:
@@ -89,4 +101,4 @@ def insert_tuple_inside_tuple(outer_tuple: tuple, position: int, inner_tuple: tu
     insert_tuple_inside_tuple((1, 2), 2, (3, 4)) => (1, 2, 3, 4)
     insert_tuple_inside_tuple((1, 2, 3), 1, (1, )) => (1, 1, 2, 3)
     """
-    pass
+    return outer_tuple[:position] + inner_tuple + outer_tuple[position:]
