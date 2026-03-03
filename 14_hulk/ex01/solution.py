@@ -9,7 +9,7 @@ def create_set_from_numbers(a: int, b: int, c: int) -> set:
     create_set_from_numbers(1, 2, 1) => {1, 2}
     create_set_from_numbers(1, 1, 1) => {1}
     """
-    # code here
+    return {a, b, c}
 
 
 def add_one(set_a: set) -> set:
