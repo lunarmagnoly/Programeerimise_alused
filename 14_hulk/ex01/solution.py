@@ -22,7 +22,11 @@ def add_one(set_a: set) -> set:
     :param set_a: given set
     :return: new set where all elements have been incremented by one.
     """
-    # code here
+    set_b = set()
+    for integer in set_a:
+        new_integer = integer + 1
+        set_b.add(new_integer)
+    return set_b
 
 
 def remove_six(set_a: set) -> set:
@@ -35,7 +39,11 @@ def remove_six(set_a: set) -> set:
     :param set_a: given set
     :return: set without sixes.
     """
-    # code here
+    set_b = set()
+    for x in set_a:
+        if x != 6:
+            set_b.add(x)
+    return set_b
 
 
 def convert_to_set(list_a: list) -> set:
@@ -48,7 +56,7 @@ def convert_to_set(list_a: list) -> set:
     :param list_a: given list
     :return: set made from given list.
     """
-    # code here
+    return set(list_a)
 
 
 def count_unique_elements(input_list: list) -> int:
@@ -63,7 +71,7 @@ def count_unique_elements(input_list: list) -> int:
     count_unique_elements([1, 1, 1]) => 1
     count_unique_elements([]) => 0
     """
-    # code here
+    return len(set(input_list))
 
 
 def common_characters_in_words(word1: str, word2: str) -> set:
@@ -75,7 +83,7 @@ def common_characters_in_words(word1: str, word2: str) -> set:
     common_characters_in_words("hello", "hi") => {"h"}
     common_characters_in_words("world", "low") => {"l", "o", "w"}
     """
-    # code here
+    return set(word1) & set(word2)
 
 
 def exam_conditions_not_met(names1: list, names2: list) -> set:
@@ -97,7 +105,11 @@ def exam_conditions_not_met(names1: list, names2: list) -> set:
     exam_conditions_not_met(["Mati", "Kati"], ["Mati", "Kati"]) => {}
     exam_conditions_not_met(["Mati", "Kaja"], ["Mati", "Kati"]) => {"Kaja", "Kati"}
     """
-    # code here
+    names1_set = set(names1)
+    names2_set = set(names2)
+    names_combined = names1_set | names2_set
+    names_common = names1_set & names2_set
+    return names_combined - names_common
 
 
 def uninvited_friends_count(friends: list, invited: list) -> int:
@@ -113,7 +125,7 @@ def uninvited_friends_count(friends: list, invited: list) -> int:
     uninvited_friends_count(["mati", "kati"], ["kati"]) => 1
     uninvited_friends_count(["mati", "kati"], ["kati", "rein"]) => 1
     """
-    # code here
+    return len(set(friends) - set(invited))
 
 
 def contains_duplicates(input_list: list) -> bool:
@@ -128,7 +140,7 @@ def contains_duplicates(input_list: list) -> bool:
     contains_duplicates([1]) => False
     contains_duplicates([]) => False
     """
-    # code here
+    return len(input_list) != len(set(input_list))
 
 
 def find_numbers_divisible_by_3(numbers: list) -> set:
@@ -146,4 +158,4 @@ def find_numbers_divisible_by_3(numbers: list) -> set:
     find_numbers_divisible_by_3([1, 2, 3]) => {3}
     find_numbers_divisible_by_3([3, 2, 3, 12]) => {3, 12}
     """
-    # code here
+    return set(numbers) & set(range(0, 1001, 3))
