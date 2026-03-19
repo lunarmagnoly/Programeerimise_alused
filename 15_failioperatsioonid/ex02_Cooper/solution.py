@@ -51,16 +51,18 @@ N 2320 m, rahuldav, järgmisest hindest puudu 280 m
 """
 
 
-def read_from_file(filename: str)-> list:
+def read_from_file(filename: str)-> list[tuple[int, str]]:
+    """Reads data from file. Returns list of tuple[distance,gender]."""
     list_from_file_data = []
     with open(filename, encoding="utf-8") as f:
         for line in f:
-            distance, gender = line.split(" ")
+            distance, gender = line.split()
             list_from_file_data.append((int(distance), gender))
     return list_from_file_data
 
 
 def evaluate(distance: int, gender: str) -> str:
+    """Evaluates Cooper test based on distance and gender"""
     good_result_male  = 2800
     acceptable_result_male = 2000
     good_result_female = 2600
@@ -69,15 +71,44 @@ def evaluate(distance: int, gender: str) -> str:
         evaluation = "väga hea"
     elif (gender == 'M' and distance < acceptable_result_male) or (gender == 'N' and distance < acceptable_result_female):
         if gender == 'M':
-            evaluation = f"nõrk, järgmisest hindest puudu {acceptable_result_male - distance}"
+            evaluation = f"nõrk, järgmisest hindest puudu {acceptable_result_male - distance} m"
         else:
-            evaluation = f"nõrk, järgmisest hindest puudu {acceptable_result_female - distance}"
+            evaluation = f"nõrk, järgmisest hindest puudu {acceptable_result_female - distance} m"
     else:
         if gender == 'M':
-            evaluation = f"rahuldav, järgmisest hindest puudu {good_result_male - distance}"
+            evaluation = f"rahuldav, järgmisest hindest puudu {good_result_male - distance} m"
         else:
-            evaluation = f"rahuldav, järgmisest hindest puudu {good_result_female - distance}"
+            evaluation = f"rahuldav, järgmisest hindest puudu {good_result_female - distance} m"
     return evaluation
 
 
-def average_distance(filename)-> str:
+def average_distance(list_from_file_data: list)-> tuple[int, int]:
+    """Calculates average distance for males and females"""
+    total_distance_male = 0
+    total_count_male = 0
+    total_distance_female = 0
+    total_count_female = 0
+    for distance, gender in list_from_file_data:
+        if gender == 'M':
+            total_distance_male += distance
+            total_count_male += 1
+        elif gender == 'N':
+            total_distance_female += distance
+            total_count_female += 1
+    if total_count_male != 0 and total_count_female != 0:
+        average_distance_male = round(total_distance_male / total_count_male)
+        average_distance_female = round(total_distance_female / total_count_female)
+        return average_distance_male, average_distance_female
+    return -1, -1
+
+
+if __name__ == '__main__':
+    filename = input("Sisestage failinimi: ")
+    list_from_file_data = read_from_file(filename)
+    for distance, gender in list_from_file_data:
+        evaluation = evaluate(distance, gender)
+        print(f"{gender} {distance} m, {evaluation}")
+    print("\nKeskmised:")
+    average_distance_male, average_distance_female = average_distance(list_from_file_data)
+    print(f"M {average_distance_male} m, {evaluate(average_distance_male, 'M')}")
+    print(f"N {average_distance_female} m, {evaluate(average_distance_female, 'N')}")
