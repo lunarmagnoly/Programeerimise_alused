@@ -1,5 +1,3 @@
-
-
 """
 Task 7 – Estonian Personal Identification Code
 
@@ -214,7 +212,7 @@ def calculate_control_number(code10: str, weight: str)-> str:
             pc = code10_digits[i] * weight_digits[i]
             total += pc
         return str(total % 11)
-    return "-1"
+    return "Viga"
 
 
 def generate_valid_personal_code()-> str:
