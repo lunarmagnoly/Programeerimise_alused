@@ -121,8 +121,15 @@ def test__fruit_order_amount_and_small_baskets_are_zero():
 
 
 #fruit_order__zero_amount_zero_big
+def test__fruit_order_amount_and_big_baskets_amount_zero():
+    """5 small baskets, 0 big baskets, 0 kg fruits order -> 0."""
+    assert fruit_order(5, 0, 0) == 0
+
 
 #fruit_order__zero_amount_others_not_zero
+def test__fruit_order_amount_zero():
+    """5 small baskets, 5 big baskets, 0 kg fruits order -> 0."""
+    assert fruit_order(5, 5, 0) == 0
 #fruit_order__only_big_exact_match
 #fruit_order__only_big_not_enough_but_multiple_of_5
 #fruit_order__only_big_not_enough
